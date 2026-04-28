@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#F5F0E8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp">
+
+        <!-- Rank number circle -->
+        <TextView
+            android:id="@+id/bid_rank"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_add_btn"/>
+
+        <!-- Bidder info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/bid_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rahat Chowdhury"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/bid_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 minutes ago"
+                android:textColor="@color/gray"
+                android:textSize="11sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Bid amount -->
+        <TextView
+            android:id="@+id/bid_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="৳130"
+            android:textColor="@color/dark_green"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

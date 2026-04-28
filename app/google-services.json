@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "674690778913",
+    "project_id": "uthsob3o",
+    "storage_bucket": "uthsob3o.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674690778913:android:e7dc8638fef04a64696060",
+        "android_client_info": {
+          "package_name": "com.example.uthsob3o"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYlwPcTPNZZ6qXHFtjj6zl10Be2Af-tbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

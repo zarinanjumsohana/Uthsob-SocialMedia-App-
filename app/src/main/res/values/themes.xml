@@ -1,0 +1,14 @@
+<resources>
+    <style name="Theme.Uthsob3O" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_green</item>
+        <item name="colorPrimaryVariant">@color/bright_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/bright_green</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/dark_green</item>
+    </style>
+
+    <style name="Theme.Uthsob3O.Splash" parent="Theme.Uthsob3O">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
