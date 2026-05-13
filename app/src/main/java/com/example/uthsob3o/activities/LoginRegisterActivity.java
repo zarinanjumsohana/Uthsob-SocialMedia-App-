@@ -19,24 +19,12 @@ public class LoginRegisterActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         btnRegister = findViewById(R.id.btn_register);
 
-        // LOGIN button → goes to Role Selection
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginRegisterActivity.this, RoleSelectionActivity.class);
-                intent.putExtra("mode", "login");
-                startActivity(intent);
-            }
+        btnLogin.setOnClickListener(v -> {
+            startActivity(new Intent(this, LoginActivity.class));
         });
 
-        // REGISTER button → goes to Role Selection
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginRegisterActivity.this, RoleSelectionActivity.class);
-                intent.putExtra("mode", "register");
-                startActivity(intent);
-            }
+        btnRegister.setOnClickListener(v -> {
+            startActivity(new Intent(this, RoleSelectionActivity.class));
         });
     }
 }
