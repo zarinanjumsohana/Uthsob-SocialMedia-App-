@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,26 +17,29 @@
         android:theme="@style/Theme.Uthsob3O"
         tools:targetApi="31">
 
+        <!-- LOGIN/REGISTER is now the FIRST screen -->
         <activity
-            android:name=".activities.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Uthsob3O.Splash">
+            android:name=".activities.LoginRegisterActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.LoginRegisterActivity"
+        <activity android:name=".activities.SplashActivity"
             android:exported="false"/>
         <activity android:name=".activities.LoginActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activities.RoleSelectionActivity"
             android:exported="false"/>
         <activity android:name=".activities.FarmerRegisterActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activities.BusinessmanRegisterActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activities.HomeActivity"
             android:exported="false"/>
         <activity android:name=".activities.BidActivity"
@@ -45,14 +49,36 @@
         <activity android:name=".activities.ProfileActivity"
             android:exported="false"/>
         <activity android:name=".activities.AddCropActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".activities.AddPostActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activities.MyCropsActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.EditCropActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activities.FarmerProfileActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.SearchActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.EditProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".activities.SettingsActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.MyBidsActivity"
             android:exported="false"/>
         <activity android:name=".MainActivity"
             android:exported="false"/>
-        <activity android:name=".activities.MyCropsActivity" android:exported="false"/>
-        <activity android:name=".activities.EditCropActivity" android:exported="false"/>
-        <activity android:name=".activities.FarmerProfileActivity" android:exported="false"/>
+        <activity android:name=".activities.AddStoryActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.ViewStoryActivity"
+            android:exported="false"/>
+        <activity android:name=".activities.AdminVerificationActivity"
+            android:exported="false"/>
+
 
     </application>
 </manifest>

@@ -29,30 +29,49 @@
                 android:paddingTop="40dp"
                 android:paddingBottom="20dp">
 
-                <!-- Profile Photo -->
+                <!-- Profile photo with edit option -->
                 <FrameLayout
-                    android:layout_width="90dp"
-                    android:layout_height="90dp">
+                    android:id="@+id/photo_frame"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
 
                     <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
+                        android:id="@+id/iv_profile_photo"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:background="@drawable/bg_story_circle"
                         android:src="@android:drawable/ic_menu_myplaces"
-                        android:padding="16dp"
-                        android:scaleType="centerInside"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
                         android:contentDescription="profile photo"/>
+
+                    <!-- Edit photo button -->
+                    <LinearLayout
+                        android:id="@+id/btn_edit_photo"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_add_btn"
+                        android:gravity="center"
+                        android:layout_gravity="bottom|end">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📷"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
 
                     <!-- Verified badge -->
                     <TextView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:id="@+id/verified_badge_icon"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:text="✓"
                         android:textColor="@color/white"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:gravity="center"
                         android:background="@drawable/bg_add_btn"
-                        android:layout_gravity="bottom|end"/>
+                        android:layout_gravity="bottom|start"
+                        android:visibility="gone"/>
                 </FrameLayout>
 
                 <!-- Name -->
@@ -395,6 +414,37 @@
                             android:layout_height="wrap_content"
                             android:text="›"
                             android:textColor="@color/gray"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+                    <View android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_gray"
+                        android:layout_marginStart="60dp"/>
+
+                    <!-- Get Verified -->
+                    <LinearLayout
+                        android:id="@+id/btn_get_verified"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp">
+                        <TextView android:layout_width="36dp"
+                            android:layout_height="wrap_content"
+                            android:text="✓" android:textSize="20sp"
+                            android:textColor="@color/bright_green"
+                            android:gravity="center"/>
+                        <TextView android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="পরিচয় যাচাই করুন"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:layout_marginStart="12dp"/>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›" android:textColor="@color/gray"
                             android:textSize="20sp"/>
                     </LinearLayout>
 

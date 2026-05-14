@@ -47,7 +47,7 @@
                 android:id="@+id/crop_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Himsagar Mangoes"
+                android:text="Crop Name"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"/>
@@ -82,7 +82,7 @@
                     android:id="@+id/crop_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rajshahi, Bangladesh"
+                    android:text="Location"
                     android:textColor="@color/white"
                     android:textSize="11sp"
                     android:layout_marginStart="12dp"/>
@@ -142,7 +142,7 @@
                         android:id="@+id/current_bid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="৳135"
+                        android:text="৳0"
                         android:textColor="@color/dark_green"
                         android:textSize="24sp"
                         android:textStyle="bold"
@@ -184,7 +184,7 @@
                             android:id="@+id/timer_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="14:20:05"
+                            android:text="00:00:00"
                             android:textColor="@color/dark_green"
                             android:textSize="20sp"
                             android:textStyle="bold"
@@ -192,7 +192,6 @@
                             android:fontFamily="monospace"/>
                     </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- BID HISTORY TITLE -->
@@ -270,7 +269,7 @@
                 android:id="@+id/bid_amount_display"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="৳135"
+                android:text="৳0"
                 android:textColor="@color/dark_green"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -309,6 +308,7 @@
         android:orientation="horizontal"
         android:background="@drawable/bottom_nav_bg"
         android:gravity="center"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <!-- Home -->
@@ -323,7 +323,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🏠"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -334,6 +334,7 @@
 
         <!-- Search -->
         <LinearLayout
+            android:id="@+id/nav_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -343,7 +344,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🔍"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -352,19 +353,20 @@
                 android:textColor="@color/gray"/>
         </LinearLayout>
 
-        <!-- Add Button — THIS IS THE FIXED PART ✅ -->
+        <!-- Add -->
         <LinearLayout
+            android:id="@+id/nav_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
             <TextView
-                android:layout_width="52dp"
-                android:layout_height="52dp"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
                 android:text="+"
                 android:textColor="@color/white"
-                android:textSize="28sp"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:background="@drawable/bg_add_btn"/>
         </LinearLayout>
@@ -381,7 +383,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🔔"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -392,6 +394,7 @@
 
         <!-- Profile -->
         <LinearLayout
+            android:id="@+id/nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -401,7 +404,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="👤"
-                android:textSize="20sp"/>
+                android:textSize="22sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

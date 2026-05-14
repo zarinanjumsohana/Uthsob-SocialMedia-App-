@@ -12,4 +12,5 @@
     <color name="light_gray">#EEEEEE</color>
     <color name="card_bg">#FFFFFF</color>
     <color name="dark_green_transparent">#CC1B4D1E</color>
+    <color name="warning">#FF9800</color>
 </resources>

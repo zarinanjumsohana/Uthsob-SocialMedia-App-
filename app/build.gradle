@@ -59,4 +59,5 @@ dependencies {
 
 // HTTP requests for Cloudinary
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
 }

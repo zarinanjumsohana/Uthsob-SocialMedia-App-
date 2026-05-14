@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:background="@color/white"
+        android:background="@color/dark_green"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -23,27 +23,103 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="বিজ্ঞপ্তি (Notifications)"
-            android:textColor="@color/dark_green"
-            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="🔔"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:gravity="center"/>
-
     </LinearLayout>
 
-    <!-- NOTIFICATIONS LIST -->
+    <!-- TAB BUTTONS -->
+    <LinearLayout
+        android:id="@+id/tab_row"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <!-- Alerts Tab -->
+        <LinearLayout
+            android:id="@+id/tab_alerts"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔔 Alerts"
+                android:textColor="@color/dark_green"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <!-- Active indicator -->
+            <View
+                android:id="@+id/indicator_alerts"
+                android:layout_width="40dp"
+                android:layout_height="3dp"
+                android:background="@color/dark_green"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Full Notifications Tab -->
+        <LinearLayout
+            android:id="@+id/tab_full"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📢 Activity"
+                android:textColor="@color/gray"
+                android:textSize="14sp"/>
+
+            <!-- Active indicator (hidden by default) -->
+            <View
+                android:id="@+id/indicator_full"
+                android:layout_width="40dp"
+                android:layout_height="3dp"
+                android:background="@color/dark_green"
+                android:layout_marginTop="4dp"
+                android:visibility="invisible"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Empty State -->
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔔\n\nকোনো বিজ্ঞপ্তি নেই!"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tab_row"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Notifications List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_notifications"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="12dp"
+        android:paddingTop="8dp"
         android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintTop_toBottomOf="@id/tab_row"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav"/>
 
     <!-- BOTTOM NAVIGATION -->
@@ -54,50 +130,71 @@
         android:orientation="horizontal"
         android:background="@drawable/bottom_nav_bg"
         android:gravity="center"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout android:id="@+id/nav_home"
             android:layout_width="0dp" android:layout_height="match_parent"
-            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🏠" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Home" android:textSize="10sp" android:textColor="@color/gray"/>
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠" android:textSize="22sp"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home" android:textSize="10sp"
+                android:textColor="@color/gray"/>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
-            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔍" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Search" android:textSize="10sp" android:textColor="@color/gray"/>
+        <LinearLayout android:id="@+id/nav_search"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍" android:textSize="22sp"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search" android:textSize="10sp"
+                android:textColor="@color/gray"/>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
-            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="+" android:textColor="@color/white" android:textSize="28sp"
-                android:gravity="center" android:background="@drawable/bg_add_btn"
-                android:paddingStart="12dp" android:paddingEnd="12dp"
-                android:paddingTop="8dp" android:paddingBottom="8dp"/>
+        <LinearLayout android:id="@+id/nav_add"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:text="+" android:textColor="@color/white"
+                android:textSize="30sp" android:gravity="center"
+                android:background="@drawable/bg_add_btn"/>
         </LinearLayout>
 
         <LinearLayout android:id="@+id/nav_alerts"
             android:layout_width="0dp" android:layout_height="match_parent"
-            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🔔" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Alerts" android:textSize="10sp" android:textColor="@color/dark_green"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔔" android:textSize="22sp"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alerts" android:textSize="10sp"
+                android:textColor="@color/dark_green"
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
-            android:layout_weight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="👤" android:textSize="20sp"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="Profile" android:textSize="10sp" android:textColor="@color/gray"/>
+        <LinearLayout android:id="@+id/nav_profile"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤" android:textSize="22sp"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile" android:textSize="10sp"
+                android:textColor="@color/gray"/>
         </LinearLayout>
 
     </LinearLayout>

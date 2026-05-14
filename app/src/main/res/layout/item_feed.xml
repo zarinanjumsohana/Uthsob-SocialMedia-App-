@@ -24,7 +24,6 @@
             android:gravity="center_vertical"
             android:padding="12dp">
 
-            <!-- Farmer Avatar -->
             <ImageView
                 android:id="@+id/farmer_avatar"
                 android:layout_width="44dp"
@@ -34,7 +33,6 @@
                 android:scaleType="centerCrop"
                 android:contentDescription="avatar"/>
 
-            <!-- Farmer Details -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -46,7 +44,7 @@
                     android:id="@+id/farmer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Abdul Karim"
+                    android:text="Farmer Name"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"/>
@@ -83,25 +81,28 @@
                     android:id="@+id/farmer_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📍 Bogura, Bangladesh"
+                    android:text="📍 Location"
                     android:textColor="@color/gray"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
 
-            <!-- Add/Follow button -->
+            <!-- STATUS BADGE -->
             <TextView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:text="+"
-                android:textColor="@color/dark_green"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:background="@drawable/btn_green_outline"/>
-
+                android:id="@+id/tv_status_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🟢 Available"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"/>
         </LinearLayout>
 
-        <!-- Crop Image with weight badge -->
+        <!-- Crop Image -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
@@ -119,7 +120,7 @@
                 android:id="@+id/weight_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🌱 5000 KG"
+                android:text="🌱 0 KG"
                 android:textColor="@color/dark_green"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -130,9 +131,27 @@
                 android:paddingBottom="4dp"
                 android:layout_gravity="top|end"
                 android:layout_margin="10dp"/>
+
+            <!-- Auction timer badge (shown during auction) -->
+            <TextView
+                android:id="@+id/tv_auction_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏱ 00:00:00"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="#CC1B4D1E"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="10dp"
+                android:visibility="gone"/>
         </FrameLayout>
 
-        <!-- Crop name and price row -->
+        <!-- Crop name and price -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,10 +169,21 @@
                     android:id="@+id/crop_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Premium Diamond Potatoes"
+                    android:text="Crop Name"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
+
+                <!-- Current bid shown during auction -->
+                <TextView
+                    android:id="@+id/tv_current_bid_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Bid: ৳0"
+                    android:textColor="@color/dark_green"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -173,19 +203,19 @@
                     android:id="@+id/base_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="৳25/kg"
+                    android:text="৳0/kg"
                     android:textColor="@color/dark_green"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
 
-        <!-- BID NOW Button -->
+        <!-- ACTION BUTTON -->
         <Button
-            android:id="@+id/btn_bid"
+            android:id="@+id/btn_action"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="BID NOW →"
+            android:text="📦 Book Now"
             android:textColor="@color/white"
             android:background="@drawable/btn_green_solid"
             android:layout_marginStart="12dp"

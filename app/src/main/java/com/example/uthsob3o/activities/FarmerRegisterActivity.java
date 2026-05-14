@@ -55,32 +55,33 @@ public class FarmerRegisterActivity extends AppCompatActivity {
         String nationalId = etNationalId.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-        // Validation
-        if (TextUtils.isEmpty(name)) { etName.setError("নাম দিন!"); return; }
+        if (TextUtils.isEmpty(name)) {
+            etName.setError("নাম দিন!"); return; }
         if (TextUtils.isEmpty(phone) || phone.length() < 11) {
-            etPhone.setError("সঠিক ফোন নম্বর দিন!"); return; }
-        if (TextUtils.isEmpty(location)) { etLocation.setError("অবস্থান দিন!"); return; }
-        if (TextUtils.isEmpty(krishokId)) { etKrishokId.setError("কৃষক আইডি দিন!"); return; }
-        if (TextUtils.isEmpty(nationalId)) { etNationalId.setError("জাতীয় পরিচয়পত্র নম্বর দিন!"); return; }
-        if (TextUtils.isEmpty(password) || password.length() < 6) {
+            etPhone.setError("১১ ডিজিটের ফোন নম্বর দিন!"); return; }
+        if (TextUtils.isEmpty(location)) {
+            etLocation.setError("অবস্থান দিন!"); return; }
+        if (TextUtils.isEmpty(krishokId)) {
+            etKrishokId.setError("কৃষক আইডি দিন!"); return; }
+        if (TextUtils.isEmpty(nationalId)) {
+            etNationalId.setError("NID নম্বর দিন!"); return; }
+        if (password.length() < 6) {
             etPassword.setError("পাসওয়ার্ড কমপক্ষে ৬ অক্ষর!"); return; }
 
         progressBar.setVisibility(View.VISIBLE);
         btnSubmit.setEnabled(false);
 
-        // Create fake email from phone
-        String fakeEmail = phone + "@uthsob.com";
+        String fakeEmail = phone.trim() + "@uthsob.com";
 
         mAuth.createUserWithEmailAndPassword(fakeEmail, password)
                 .addOnSuccessListener(authResult -> {
                     String uid = authResult.getUser().getUid();
-
-                    // Create user model
-                    UserModel user = new UserModel(uid, name, phone, location, "farmer");
+                    UserModel user = new UserModel(uid, name, phone,
+                            location, "farmer");
                     user.setKrishokId(krishokId);
                     user.setNationalId(nationalId);
+                    user.setPhotoUrl("");
 
-                    // Save to Firestore
                     db.collection("users").document(uid)
                             .set(user)
                             .addOnSuccessListener(unused -> {
@@ -88,19 +89,21 @@ public class FarmerRegisterActivity extends AppCompatActivity {
                                 Toast.makeText(this,
                                         "নিবন্ধন সফল! স্বাগতম " + name,
                                         Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(this, HomeActivity.class);
+                                Intent intent = new Intent(this,
+                                        HomeActivity.class);
                                 intent.putExtra("role", "farmer");
                                 intent.putExtra("uid", uid);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.setFlags(
+                                        Intent.FLAG_ACTIVITY_NEW_TASK
+                                                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             })
                             .addOnFailureListener(e -> {
                                 progressBar.setVisibility(View.GONE);
                                 btnSubmit.setEnabled(true);
-                                Toast.makeText(this, "Error: " + e.getMessage(),
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this,
+                                        "Database error: " + e.getMessage(),
+                                        Toast.LENGTH_LONG).show();
                             });
                 })
                 .addOnFailureListener(e -> {
@@ -109,11 +112,12 @@ public class FarmerRegisterActivity extends AppCompatActivity {
                     String msg = e.getMessage();
                     if (msg != null && msg.contains("already in use")) {
                         Toast.makeText(this,
-                                "এই ফোন নম্বর ইতিমধ্যে নিবন্ধিত!",
-                                Toast.LENGTH_SHORT).show();
+                                "এই ফোন নম্বর ইতিমধ্যে নিবন্ধিত! লগইন করুন।",
+                                Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(this, "Error: " + msg,
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this,
+                                "Registration failed: " + msg,
+                                Toast.LENGTH_LONG).show();
                     }
                 });
     }
